@@ -1,5 +1,5 @@
-const menu = document.getElementById('main-menu');
-const hamburgerBtn = document.querySelector('.hamburger-btn');
+var menu = document.getElementById('main-menu');
+var hamburgerBtn = document.querySelector('.hamburger-btn');
 
 function openMenu() {
     menu.classList.add('show-menu');
@@ -12,10 +12,23 @@ function closeMenu() {
 }
 
 function toggleMenu() {
-    const isOpen = menu.classList.contains('show-menu');
+    var isOpen = menu.classList.contains('show-menu');
     if (isOpen) {
         closeMenu();
     } else {
         openMenu();
     }
 }
+
+hamburgerBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(event) {
+    var isClickInside = menu.contains(event.target) || hamburgerBtn.contains(event.target);
+    if (!isClickInside) {
+        closeMenu();
+    }
+});
+
