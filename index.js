@@ -28,6 +28,7 @@ hamburgerBtn.addEventListener('click', function(event) {
     toggleMenu();
 });
 
+// closing menu when clicking outside of it
 document.addEventListener('click', function(event) {
     var isInside = menu.contains(event.target) || hamburgerBtn.contains(event.target);
     if (!isInside) {
@@ -37,11 +38,13 @@ document.addEventListener('click', function(event) {
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' || event.key === 'Esc') {
-        if (menu.classList.contains('show-menu')) {
+        var isOpen = menu.classList.contains('show-menu');
+        if (isOpen) {
             closeMenu();
-            hamburgerBtn.focus();
+
+            if (menu.contains(document.activeElement)) {
+                hamburgerBtn.focus();
+            }
         }
     }
 });
-
-
