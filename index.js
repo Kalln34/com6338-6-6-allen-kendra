@@ -38,13 +38,9 @@ document.addEventListener('click', function(event) {
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' || event.key === 'Esc') {
-        var isOpen = menu.classList.contains('show-menu');
-        if (isOpen) {
+        if (menu.classList.contains('show-menu')) {
             closeMenu();
-
-            if (menu.contains(document.activeElement)) {
-                hamburgerBtn.focus();
-            }
+            hamburgerBtn.focus();
         }
     }
 });
