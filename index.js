@@ -37,7 +37,8 @@ document.addEventListener('click', function(event) {
 });
 
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' || event.key === 'Esc') {
+    console.log("Key pressed:", event.key);
+    if (event.key === 'Escape') {
         if (menu.classList.contains('show-menu')) {
             closeMenu();
             hamburgerBtn.focus();
