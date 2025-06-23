@@ -23,6 +23,7 @@ function toggleMenu() {
     }
 }
 
+// clicking on hamburger menu
 hamburgerBtn.addEventListener('click', function(event) {
     event.stopPropagation();
     toggleMenu();
@@ -36,6 +37,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// pressing esc key to close meny and focus on button
 document.addEventListener('keydown', function(event) {
     console.log("Key pressed:", event.key);
     if (event.key === 'Escape') {
